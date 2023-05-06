@@ -1,11 +1,15 @@
-#Welcome to Flight Search App
+#Welcome to Flight Search App Created By Asif Hussain.
 
 #Project Setup
  -clone the project on your local machine
  -Execute the `npm install` on the same path as of your root directory of the
- downloaded project
- -Create a `.env` file in the root directory and the following environment variable
-  -`PORT=3000`
+  downloaded project
+ -Create a `.env` file in the root directory and the following environment variable.
+
+  if `dotenv.config()` didn't work then use 
+  `dotenv.config({path:path.resolve(__dirname, '../../.env')})` to get access `.env` file.
+  
+  -Add `PORT=3000` to the `.env` file.
 
 -Inside the `src/config` folder create a file `config.json` and the add the following 
   code to it.
