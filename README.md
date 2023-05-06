@@ -26,3 +26,4 @@
   ```  
 #Once you have done all the configuration listed above you need run the following coomands-
  `npx sequelize db:create`
+
