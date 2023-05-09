@@ -39,7 +39,7 @@ const delet = async (req, res) => {
   }
 };
 
-const updte = async (req, res) => {
+const update = async (req, res) => {
   try {
     const response = await cityservice.updateCity(req.params.id, req.body);
     return res.status(200).json({
