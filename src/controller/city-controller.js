@@ -9,11 +9,12 @@ const create = async (req, res) => {
       data: city,
       success: true,
       message: "City created successfully",
-      err: { err },
+      err: {},
     });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
+      data:{},
       message: "Not able to create city",
       success: false,
       err: { error },
@@ -73,4 +74,11 @@ const get = async (req, res) => {
       err: { error },
     });
   }
+};
+
+module.exports={
+  create,
+  delet,
+  update,
+  get,
 };
