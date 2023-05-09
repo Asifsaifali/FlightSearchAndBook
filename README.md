@@ -1,7 +1,7 @@
-##Welcome to Flight Search App 
+# Welcome to Flight Search App 
 Created By Asif Hussain.
 
-#Project Setup
+# Project Setup
  -clone the project on your local machine
  -Execute the `npm install` on the same path as of your root directory of the
   downloaded project
