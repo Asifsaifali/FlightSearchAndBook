@@ -1,11 +1,10 @@
 const { City } = require("../models/index");
 
 class Cityrepository {
-
   async createCity({ name }) {
     try {
       const city = await City.create({
-        name
+        name,
       });
       return city;
     } catch (error) {
@@ -28,26 +27,38 @@ class Cityrepository {
     }
   }
 
-  async updateCity(cityid, data) {
+  async updateCity(cityId, data) {
     try {
-      await City.update(data, {
-        where: {
-          id: cityid,
-        },
-      });
+      // const city = await City.findByPk(cityid);
+      // city.name = data.name;
+      // await city.save();
+      const city = await City.findByPk(cityId);
+            city.name = data.name;
+            await city.save();
+            return city; 
     } catch (error) {
       console.log("Something went wrong");
       throw { error };
     }
   }
 
-  async getCity(cityid) {
+  async getCity(cityId) {
     try {
-      const city = await City.findByPk(cityid);
+      const city=await City.findByPk(cityId)
       return city;
     } catch (error) {
       console.log("Something went wrong");
-      throw { error };
+      throw {error};
+    }
+  }
+
+  async getAllCity(){
+    try {
+      const city =await City.findAll()
+      return city;
+    } catch (error) {
+      console.log("Something went wrong");
+      throw {error};
     }
   }
 }

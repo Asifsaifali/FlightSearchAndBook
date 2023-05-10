@@ -26,12 +26,12 @@ class CityService{
         }               
     }
 
-    async updateCity(cityId){
+    async updateCity(cityId,data){
         try {
-            const resp=await this.cityRepository.updateCity(cityId);
+            const resp=await this.cityRepository.updateCity(cityId,data);
             return resp;
         } catch (error) {
-            console.log("Something went wrong in city services");
+            console.log("Something went wrong in updateCity services");
             throw{error};
         }
     }
@@ -40,9 +40,18 @@ class CityService{
         try {
             const resp=await this.cityRepository.getCity(cityId);
             return resp;
-            
         } catch (error) {
-            console.log("Something went wrong in city services");
+            console.log("Something went wrong in getCity services");
+            throw{error};
+        }
+    }
+
+    async getAllCity(){
+        try {
+            const city=await this.cityRepository.getAllCity()
+            return city;
+        } catch (error) {
+            console.log("Something went wrong in getCity services");
             throw{error};
         }
     }
