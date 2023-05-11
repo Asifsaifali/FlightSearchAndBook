@@ -3,7 +3,8 @@
    const bodyparser=require('body-parser')
    const ApiRoutes=require('./routes/index');
 
-   const {City}=require('./models/index')
+   const {City,Airport}=require('./models/index')
+const db=require('./models/index')
 
     const Setupserver=async()=>{
 
@@ -13,9 +14,15 @@
 
         app.use('/api',ApiRoutes)
    
-        app.listen(PORT,()=>{
+        app.listen(PORT,async()=>{
             console.log(`Server is running at port ${PORT}`);
-
+           const city=await City.findOne({
+             where:{
+                id:6,
+             }
+           })
+           const arport=await city.getAirports();
+           console.log(city,arport)
         });
     }
 
