@@ -3,7 +3,7 @@
    const bodyparser=require('body-parser')
    const ApiRoutes=require('./routes/index');
 
-   const {City,Airport}=require('./models/index')
+   const {City,Airplane}=require('./models/index')
 const db=require('./models/index')
 
     const Setupserver=async()=>{
@@ -16,13 +16,10 @@ const db=require('./models/index')
    
         app.listen(PORT,async()=>{
             console.log(`Server is running at port ${PORT}`);
-           const city=await City.findOne({
-             where:{
-                id:6,
-             }
-           })
-           const arport=await city.getAirports();
-           console.log(city,arport)
+           
+            await Airplane.create({
+               modelNumber:'Listara X763A'
+            })
         });
     }
 
