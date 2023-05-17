@@ -32,8 +32,6 @@ const create = async (req, res) => {
   }
 };
 
-
-
 const get = async (req, res) => {
   try {
     const flight = await flightservice.getFlight(req.params.id);
@@ -55,15 +53,15 @@ const get = async (req, res) => {
   }
 };
 
-const update=async(req,res)=>{
+const update = async (req, res) => {
   try {
-    const flight=await flightservice.updateFlight(req.params.id,req.body);
+    const flight = await flightservice.updateFlight(req.params.id, req.body);
     return res.status(200).json({
       data: flight,
       success: true,
       message: "Flight Updated successfully",
       err: {},
-    })
+    });
   } catch (error) {
     console.log("Something wrong in Controller");
     console.log(error);
@@ -74,7 +72,7 @@ const update=async(req,res)=>{
       err: { error },
     });
   }
-}
+};
 
 module.exports = {
   create,
