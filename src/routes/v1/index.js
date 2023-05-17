@@ -14,7 +14,7 @@ router.get('/city',CityController.getAll);
 
 router.post('/flights',FlightController.create);
 router.get('/flights/:id',FlightController.get);
-router.delete('/flights/:id',FlightController.delet);
+router.patch('/flights/:id',FlightController.update);
 
 router.post('/airplanes',AirplaneController.create);
 router.delete('/airplanes/:id',AirplaneController.delet);
