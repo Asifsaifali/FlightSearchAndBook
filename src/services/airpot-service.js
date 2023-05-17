@@ -1,6 +1,7 @@
 const {AirportRepository}=require('../repository/index')
 
 class Airportservice{
+  
      constructor(){
         this.airportRepository=new AirportRepository()
         }

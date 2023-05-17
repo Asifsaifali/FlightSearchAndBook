@@ -1,7 +1,7 @@
 # Welcome to Flight Search App 
 Created By Asif Hussain.
 
-#Project Setup
+## Project Setup
  -clone the project on your local machine
  -Execute the `npm install` on the same path as of your root directory of the
   downloaded project
@@ -13,25 +13,13 @@ Created By Asif Hussain.
   -Add `PORT=3000` to the `.env` file.
 
 -Inside the `src/config` folder create a file `config.json` and the add the following 
-  code to it.
+  code to it.                       
+ ```
+ ## Tables:
 
-  ```
-
-    {
-  "development": {
-    "username": "<YOUR_DB_USERNAME>",
-    "password": "<YOUR_DB_PSWD>",
-    "database": "Flight_Search_App",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-}
-
-
-  ```  
-#Once you have done all the configuration listed above you need run the following coomands-
- `npx sequelize db:create`
-
- 
-
+ ### City->id,cityId,name,createdAt,updatedAt
+ ### Airport->id,name,address,createdAt,updatedAt
+ ```
+ #### following command is used to create Airport models
+>`npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer`
 
