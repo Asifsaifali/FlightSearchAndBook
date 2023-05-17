@@ -1,10 +1,10 @@
-const { FlightRepository } = require("../repository/index");
+const { FlightRepository,AirplaneRepository } = require("../repository/index");
 const {Comprison}=require('../utils/helper')
-const {AirplneRepository}=require('../repository/')
 
 class FlightService {
   constructor() {
     this.flightService = new FlightRepository();
+    this.airplaneRepository=new AirplaneRepository();
   }
 
   async createFlight(data) {
@@ -16,19 +16,11 @@ class FlightService {
         }
       }
 
-
-      const flight = await this.flightService.createFlight(data);
+      const airplane=await this.airplaneRepository.getAirplane(data.airplaneId)
+      const flight = await this.flightService.createFlight({
+        ...data,totalSeat:airplane.capacity
+      });
       return flight;
-    } catch (error) {
-      console.log("Something wrong in Service");
-      throw { error };
-    }
-  }
-
-  async deleteFLight(flightId) {
-    try {
-      const resp = await this.flightService.deleteFlight(flightId);
-      return resp;
     } catch (error) {
       console.log("Something wrong in Service");
       throw { error };

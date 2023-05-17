@@ -13,16 +13,6 @@ class FlightRepository{
         }
     }
 
-    async deleteFlight(flightId){
-        try {
-            const response=await Flight.destro(flightId);
-            return response;
-        } catch (error) {
-            console.log("Something went wrong in repository");
-            throw{error};
-        }
-    }
-
     async getFlight(flightId){
         try {
             const get=await Flight.findByPk(flightId);

@@ -1,6 +1,6 @@
 const { FlightService } = require("../services/index");
 
-const flightService = new FlightService();
+const flightservice = new FlightService();
 
 const create = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ const create = async (req, res) => {
       departureTime: req.body.departureTime,
       price: req.body.price,
     };
-    const flight = await this.flightService.createFlight(Flightdata);
+    const flight = await flightservice.createFlight(Flightdata);
     return res.status(200).json({
       data: flight,
       success: true,
@@ -32,30 +32,11 @@ const create = async (req, res) => {
   }
 };
 
-const delet = async (req, res) => {
-  try {
-    const resp = await this.flightService.delet(req.params.id);
-    return res.status(200).json({
-      data: resp,
-      success: true,
-      message: "Flight Deleted successfully",
-      err: {},
-    });
-  } catch (error) {
-    console.log("Something wrong in Controller");
-    console.log(error);
-    return res.status(500).json({
-      data: {},
-      message: "Not able to create Flight",
-      success: false,
-      err: { error },
-    });
-  }
-};
+
 
 const get = async (req, res) => {
   try {
-    const flight = await this.flightService.getFlight(req.params.id);
+    const flight = await flightservice.getFlight(req.params.id);
     return res.status(200).json({
       data: flight,
       success: true,
@@ -76,6 +57,5 @@ const get = async (req, res) => {
 
 module.exports = {
   create,
-  delet,
   get,
 };
