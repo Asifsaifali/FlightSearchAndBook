@@ -7,10 +7,10 @@ class AirplaneService {
 
   async createAirplane(data) {
     try {
-      const airplne = await this.airplaneRepository.createAirplane(data);
-      return airplne;
+      const airplane = await this.airplaneRepository.createAirplane(data);
+      return airplane;
     } catch (error) {
-      console.log("Something went wrong in airplne services");
+      console.log("Something went wrong in airplane services");
       throw { error };
     }
   }
@@ -20,7 +20,7 @@ class AirplaneService {
       const response = await this.airplaneRepository.deleteAirplane(airplaneId);
       return response;
     } catch (error) {
-      console.log("Something went wrong in airplne services");
+      console.log("Something went wrong in airplane services");
       throw { error };
     }
   }
@@ -50,10 +50,10 @@ class AirplaneService {
 
   async getAllAirplane(filter) {
     try {
-      const airplne = await this.airplaneRepository.getAllAirplane({
+      const airplane = await this.airplaneRepository.getAllAirplane({
         name: filter.name,
       });
-      return airplne;
+      return airplane;
     } catch (error) {
       console.log("Something went wrong in getCity services");
       throw { error };

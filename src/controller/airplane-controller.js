@@ -8,7 +8,7 @@ const create = async (req, res) => {
     return res.status(201).json({
       data: airplane,
       success: true,
-      message: "Airplne created successfully",
+      message: "Airplane created successfully",
       err: {},
     });
   } catch (error) {
@@ -66,6 +66,13 @@ const update = async (req, res) => {
 const get = async (req, res) => {
   try {
     const airplane = await airplaneService.getAirplane(req.params.id);
+    if(airplane===null){
+      return res.status(500).json({
+        data: {},
+        message: "No Any plane available of this id",
+        success: false
+      })
+    }
     return res.status(200).json({
       data: airplane,
       message: "Airplane retrieve Successfully",

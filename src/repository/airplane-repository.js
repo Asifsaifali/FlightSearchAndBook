@@ -1,5 +1,4 @@
-
-const {Airplane}=require('../models/index')
+const { Airplane } = require("../models/index");
 
 class AirplaneRepository {
   async createAirplane({ name }) {
