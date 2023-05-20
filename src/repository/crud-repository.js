@@ -1,10 +1,22 @@
+const {Op}=require('sequelize');
+
 class CrudRepository {
   constructor(model) {
     this.model = model;
   }
-  async getAll(modelId) {
+  async getAll(filter) {
     try {
-      const result = await this.model.findAll(modelId);
+      if(filter.name){
+        const result = await this.model.findAll({
+          where:{
+            name:{
+              [Op.startsWith]:filter.name
+             }
+            }
+          });
+        return result;
+      }
+      const result = await this.model.findAll();
       return result;
     } catch (error) {
       console.log("Something went wrong in repository");
@@ -12,8 +24,14 @@ class CrudRepository {
     }
   }
   async get(id) {
-    const result = await this.model.findByPk(id);
-    return result;
+    try {
+      const result = await this.model.findByPk(id);
+      return result;
+    } catch (error) {
+      console.log("Something went wrong in repository");
+      throw { error };
+    }
+  
   }
   async create(data) {
     try {
@@ -24,11 +42,11 @@ class CrudRepository {
       throw { error };
     }
   }
-  async update(id, data) {
+  async update(Id, data) {
     try {
       const result = await this.model.findByPk(data, {
         where: {
-          id: id,
+          id: Id,
         },
       });
       return result;

@@ -67,6 +67,13 @@ const destroy = async (req, res) => {
   const get = async (req, res) => {
     try {
       const airport = await airportService.get(req.params.id);
+      if(airport===null){
+        return res.status(500).json({
+          data: {},
+          message: "No Any plane available of this id",
+          success: false
+        })
+      }
       return res.status(200).json({
         data: airport,
         message: "Airplane retrieve Successfully",
@@ -87,6 +94,13 @@ const destroy = async (req, res) => {
   const getAll = async (req, res) => {
     try {
       const airport = await airportService.getAll(req.query);
+      if(airport===null){
+        return res.status(500).json({
+          data: {},
+          message: "No Any plane available of this id",
+          success: false
+        })
+      }
       return res.status(200).json({
         data: airport,
         message: "Airplane retrieve Successfully",

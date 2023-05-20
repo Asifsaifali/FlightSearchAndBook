@@ -4,7 +4,7 @@ const cityservice = new CityService();
 
 const create = async (req, res) => {
   try {
-    const city = await cityservice.createCity(req.body);
+    const city = await cityservice.create(req.body);
     return res.status(201).json({
       data: city,
       success: true,
@@ -24,7 +24,7 @@ const create = async (req, res) => {
 
 const delet = async (req, res) => {
   try {
-    const city = await cityservice.deleteCity(req.params.id);
+    const city = await cityservice.destroy(req.params.id);
     return res.status(200).json({
       data: city,
       success: true,
@@ -42,7 +42,7 @@ const delet = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const response = await cityservice.updateCity(req.params.id,req.body);
+    const response = await cityservice.update(req.params.id,req.body);
     return res.status(200).json({
       data: response,
       success: true,
@@ -62,7 +62,7 @@ const update = async (req, res) => {
 
 const get = async (req, res) => {
   try {
-    const city = await cityservice.getCity(req.params.id);
+    const city = await cityservice.get(req.params.id);
     return res.status(200).json({
       data: city,
       message: "City retrieve Successfully",
@@ -82,7 +82,7 @@ const get = async (req, res) => {
 
 const getAll=async(req,res)=>{
   try{
-    const city=await cityservice.getAllCity(req.query );
+    const city=await cityservice.getAll(req.query );
     return res.status(200).json({
       data:city,
       message: "City retrieve Successfully",

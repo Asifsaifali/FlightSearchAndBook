@@ -1,4 +1,5 @@
 const { Airplane } = require("../models/index");
+const {Op}=require('sequelize')
 
 class AirplaneRepository {
   async createAirplane({ name }) {
