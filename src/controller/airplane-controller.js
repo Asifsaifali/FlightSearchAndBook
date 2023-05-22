@@ -1,5 +1,5 @@
 const { AirplaneService } = require("../services/index");
-const { ServerSideError } = required("../utils/CodeError");
+const { ServerSideError } = require("../utils/CodeError");
 const airplaneService = new AirplaneService();
 
 const create = async (req, res) => {

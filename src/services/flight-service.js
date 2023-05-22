@@ -15,7 +15,7 @@ class FlightService {
         };
       }
 
-      const airplane = await this.airplaneRepository.getAirplane(
+      const airplane = await this.airplaneRepository.get(
         data.airplaneId
       );
       const flight = await this.flightService.createFlight({
