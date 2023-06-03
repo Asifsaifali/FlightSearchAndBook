@@ -33,6 +33,7 @@ class FlightRepository extends CrudRepository{
             })
             return true;  
         } catch (error) {
+            console.log(error)
             console.log("Something went wrong in repository");
             throw{error};
         }
